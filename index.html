@@ -1,0 +1,1293 @@
+<html lang="en"><head>
+  <!-- Google tag (gtag.js) + Consent Mode defaults (EEA safe) -->
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    // Global default (non-EU)
+    gtag('consent','default', {
+      ad_storage:'granted',
+      ad_user_data:'granted',
+      ad_personalization:'granted',
+      analytics_storage:'granted'
+    });
+
+    // EU/UK override
+    gtag('consent','default', {
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied',
+      analytics_storage:'denied',
+      region:['AT','BE','BG','CH','CY','CZ','DE','DK','EE','ES','FI','FR','GR','HR','HU',
+              'IE','IS','IT','LI','LT','LU','LV','MT','NL','NO','PL','PT','RO','SE','SI',
+              'SK','UK','GB']
+    });
+
+    gtag('js', new Date());
+    gtag('config','G-DM66YY14Z4',{ ads_data_redaction:true });
+  </script>
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-DM66YY14Z4"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4943394934413619">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://starlighttools.org/science/game-of-life">
+
+  <!-- Primary SEO -->
+  <title>Conway’s Game of Life – Interactive Simulator (Draw, Share, Custom Rules) | Starlight Tools</title>
+  <meta name="description" content="Play Conway’s Game of Life online. Draw cells, load famous patterns, change rules, speed, and grid size, and share patterns by link. Client-side and private.">
+  <meta name="author" content="Starlight Robotics">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="language" content="en">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Starlight Tools">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://starlighttools.org/science/game-of-life">
+  <meta property="og:title" content="Conway’s Game of Life – Interactive Simulator">
+  <meta property="og:description" content="Draw, simulate, and share Conway’s Game of Life. Presets, custom rules, speed, wrap mode, and more. Client-side privacy.">
+  <meta property="og:image" content="https://starlighttools.org/assets/game-of-life-preview.jpg">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="Conway’s Game of Life grid with glider pattern">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://starlighttools.org/science/game-of-life">
+  <meta name="twitter:title" content="Conway’s Game of Life – Interactive Simulator">
+  <meta name="twitter:description" content="Interactive Game of Life with presets, custom rules, speed, wrap mode, and share link. 100% browser-based.">
+  <meta name="twitter:image" content="https://starlighttools.org/assets/game-of-life-preview.jpg">
+  <meta name="twitter:site" content="@starlightrobotx">
+  <meta name="twitter:creator" content="@starlightrobotx">
+
+  <!-- JSON-LD: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Conway’s Game of Life",
+    "alternateName":["Game of Life Simulator","Cellular Automaton Simulator"],
+    "applicationCategory":["EducationalApplication","Simulation"],
+    "operatingSystem":"Web Browser",
+    "inLanguage":"en",
+    "url":"https://starlighttools.org/science/game-of-life",
+    "image":"https://starlighttools.org/assets/game-of-life-preview.jpg",
+    "isAccessibleForFree": true,
+    "publisher":{"@type":"Organization","name":"Starlight Tools","url":"https://starlighttools.org"},
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "featureList":[
+      "Draw cells on a pixel grid",
+      "Start/Pause/Step, speed control",
+      "Grid size presets and wrap (toroidal) mode",
+      "Famous patterns: Glider, Pulsar, Gosper Glider Gun, LWSS, R-pentomino",
+      "Custom rules (B/S), presets for HighLife & Seeds",
+      "Random fill with density slider",
+      "Shareable link encoding state"
+    ],
+    "description":"Run Conway’s Game of Life in your browser with drawing tools, pattern presets, custom B/S rules, speed controls, wrap mode, and shareable states.",
+    "keywords":"conway game of life, interactive simulator, cellular automata, glider gun, life patterns, B3/S23, highlife, seeds"
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Starlight Tools","item":"https://starlighttools.org/"},
+      {"@type":"ListItem","position":2,"name":"Science & Research","item":"https://starlighttools.org/science-tools"},
+      {"@type":"ListItem","position":3,"name":"Conway’s Game of Life","item":"https://starlighttools.org/science/game-of-life"}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: HowTo -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"HowTo",
+    "name":"How to use the Game of Life simulator",
+    "tool":[{"@type":"HowToTool","name":"Conway’s Game of Life – Starlight Tools"}],
+    "step":[
+      {"@type":"HowToStep","text":"Choose a grid size and toggle Wrap if desired."},
+      {"@type":"HowToStep","text":"Draw cells by clicking/dragging on the grid, or load a preset pattern."},
+      {"@type":"HowToStep","text":"Press Play to run the simulation; adjust Speed; use Step for single generations."},
+      {"@type":"HowToStep","text":"Change rules via B/S notation (e.g., B3/S23) or pick HighLife/Seeds."},
+      {"@type":"HowToStep","text":"Use Share Link to copy a URL that recreates your exact setup."}
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What are the default rules?","acceptedAnswer":{"@type":"Answer","text":"Conway’s Life uses B3/S23 (a dead cell is born with 3 neighbors; a live cell survives with 2 or 3 neighbors)."}},
+      {"@type":"Question","name":"What does Wrap do?","acceptedAnswer":{"@type":"Answer","text":"Wrap treats the grid edges as connected (toroidal), so cells on one side see neighbors on the opposite side."}},
+      {"@type":"Question","name":"Can I use other Life-like rules?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enter custom B/S rules such as HighLife (B36/S23) or Seeds (B2/S)."}},
+      {"@type":"Question","name":"Is my data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Everything runs locally in your browser. The Share Link encodes the state in the URL hash on your device."}}
+    ]
+  }
+  </script>
+
+  <link rel="icon" href="https://starlighttools.org/favicon.png" type="image/png">
+
+  <!-- ---------- Styles (borrowed layout) ---------- -->
+  <style>
+    :root{
+      --rail-w: 300px;
+      --gap: 32px;
+      --main-max: clamp(980px, 74vw, 1320px);
+      --page-max: calc(var(--main-max) + 2*var(--rail-w) + 2*var(--gap));
+    }
+    *{ box-sizing: border-box; }
+    html, body{ height:100%; overflow-x:hidden; }
+    body{
+      margin:0; background:#fafafa; color:#111;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      line-height:1.45;
+    }
+    a{ color:#0066cc; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    header{ position: static; top:0; z-index:10; background:#fff; border-bottom:1px solid #e6e6e6; }
+    .header-inner{
+      max-width: var(--page-max); margin:0 auto; padding:.8rem 1rem;
+      display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    }
+    .brand{ display:flex; align-items:center; gap:.5rem; font-weight:700; color:#333; }
+
+    .page{
+      max-width: var(--page-max); margin:0 auto; display:grid; gap:var(--gap); padding:1rem;
+      grid-template-columns: minmax(0,1fr);
+    }
+    @media (min-width:980px) and (max-width:1599.98px){
+  .page{
+    grid-template-columns: 1fr var(--rail-w);
+    align-items: start;
+    max-width: calc(var(--main-max) + var(--rail-w) + var(--gap));
+  }
+  .left-rail{ display: none !important; }
+    }
+    @media (min-width:1600px){
+      .page{ grid-template-columns: var(--rail-w) minmax(0, var(--main-max)) var(--rail-w); align-items:start; }
+    }
+
+    .rail{ position: sticky; top:72px; height:fit-content; }
+    .rail .stack > * + *{ margin-top: var(--gap); }
+    .ad-wrap[aria-label="Advertisement"]{ background:#fff; border:1px solid #eee; border-radius:12px; padding:.5rem; }
+    .rail .ad-wrap[aria-label]::before{ content: attr(aria-label); display:block; font-size:1rem; font-weight:700; letter-spacing:.01em; text-transform:none; color:#1f2937; padding:0; margin:0 0 .65rem; text-align:center; }
+    .ad-slot{ display:block; width:100%; min-height:300px; }
+    @media (min-width:1200px){ .ad-slot{ min-height:320px; } }
+    .infeed-ad-wrap{ background:#fff; border:1px solid #eee; border-radius:12px; padding:.5rem; }
+    .infeed-ad-slot{ display:block; width:100%; min-height:220px; }
+    @media (min-width:700px){ .infeed-ad-slot{ min-height:250px; } }
+
+    .show-desktop{ display:none; }
+    .show-mobile{ display:block; }
+    @media (min-width:980px){
+      .show-desktop{ display:block; }
+      .show-mobile{ display:none; }
+    }
+
+    .card{ background:#fff; border:1px solid #eee; border-radius:12px; padding:1rem; }
+    h1{ font-size:1.55rem; margin:.25rem 0 .25rem; }
+    h2{ font-size:1.15rem; margin:0 0 .75rem; }
+    .meta{ color:#555; font-size:.95rem; margin:.25rem 0 .8rem; text-align:left; }
+    .hint{ color:#666; font-size:.9rem; }
+
+    .tool-canvas > * + *{ margin-top:1rem; }
+    .tool-grid{ display:grid; gap:1rem; grid-template-columns:1fr; }
+    @media (min-width:980px){ .tool-grid{ grid-template-columns: 1fr 1.35fr; } }
+
+    /* Controls */
+    .controls .row{ display:flex; flex-wrap:wrap; gap:.6rem; align-items:center; }
+    .controls label{ font-weight:600; min-width:140px; }
+    .controls input[type="text"],
+    .controls input[type="number"],
+    .controls input[type="range"],
+    .controls select{
+      padding:.55rem .6rem; border:1px solid #ccc; border-radius:8px; font:inherit;
+    }
+    .badge{ font-size:.8rem; background:#eef4ff; color:#2055aa; border:1px solid #cfe1ff; border-radius:999px; padding:.1rem .5rem; }
+
+    .btn{ background:#0066cc; color:#fff; border:none; border-radius:8px; padding:.55rem .9rem; cursor:pointer; font-size:.95rem; }
+    .btn:hover{ background:#004a99; }
+    .btn.ghost{ background:transparent; color:#0066cc; border:1px solid #cfe3f8; }
+    .btn.ghost:hover{ background:#f3f8ff; }
+    .btn.secondary{ background:#eee; color:#222; }
+    .btn.secondary:hover{ background:#ddd; }
+    .example-btn{
+      display:inline-flex; align-items:center; gap:.35rem;
+      background:#f3f8ff; color:#0a58ca; border:1px solid #cfe3f8;
+      border-radius:999px; padding:.42rem .72rem; cursor:pointer; font-size:.9rem;
+    }
+    .example-btn:hover{ background:#eaf3ff; border-color:#bed8fb; }
+
+    /* Canvas */
+    .canvas-wrap{ background:#fff; border:1px solid #eee; border-radius:12px; padding:.75rem; }
+    #lifeCanvas{ width:100%; height:auto; display:block; background:#fafafa; border-radius:8px; touch-action:none; }
+    #lifeCanvas:focus-visible{ outline:2px solid #0a58ca; outline-offset:2px; }
+    .canvas-wrap:fullscreen{
+      background:#111;
+      border:none;
+      border-radius:0;
+      padding:1rem;
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:.75rem;
+    }
+    .canvas-wrap:fullscreen #lifeCanvas{
+      width:auto;
+      max-width:100%;
+      max-height:calc(100vh - 150px);
+      margin:0 auto;
+      background:#fff;
+    }
+    .canvas-wrap:fullscreen .stats{
+      justify-content:center;
+    }
+    .fs-controls,
+    .fs-show-controls{ display:none; }
+    .canvas-wrap:fullscreen .fs-controls{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.5rem;
+      justify-content:center;
+    }
+    .canvas-wrap:fullscreen.fs-controls-hidden .fs-controls{
+      display:none;
+    }
+    .canvas-wrap:fullscreen .fs-show-controls{
+      position:absolute;
+      top:1rem;
+      right:1rem;
+      display:none;
+      z-index:3;
+    }
+    .canvas-wrap:fullscreen.fs-controls-hidden .fs-show-controls{
+      display:inline-flex;
+    }
+    .toolbar{ display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center; margin:.75rem 0; }
+    .stats{ display:flex; gap:1rem; justify-content:center; font-variant-numeric: tabular-nums; }
+    .stats div{ background:#f9f9f9; border:1px solid #eee; border-radius:8px; padding:.45rem .65rem; }
+
+    /* Related tools (pills) */
+    .related-tools{
+      display:flex; flex-wrap:wrap; align-items:center; gap:.5rem;
+      padding:.75rem 1rem; margin:.25rem 0 0;
+    }
+    .related-tools .label{ margin-right:.25rem; color:#333; }
+    .related-tools .pill{
+      display:inline-block; padding:.35rem .6rem; border-radius:999px;
+      background:#f3f4f6; border:1px solid #e5e7eb; font-size:.93rem; color:#0a58ca;
+      text-decoration:none; white-space:nowrap;
+    }
+    .related-tools .pill:hover{ background:#eef5ff; border-color:#cfe3f8; text-decoration:none; }
+
+    /* Info blocks */
+    .below-content .grid{ display:grid; gap:.75rem; grid-template-columns: repeat(2, minmax(0,1fr)); }
+    @media (min-width:700px){ .below-content .grid{ grid-template-columns: repeat(4, minmax(0,1fr)); } }
+
+    footer{ color:#666; font-size:.9rem; padding:2rem 1rem; text-align:center; }
+
+    /* Screenreader-only helper */
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
+
+
+        /* Search (shared) */
+    .site-search{ position:relative; flex:1; max-width:520px; }
+    .site-search form{ display:flex; align-items:center; gap:.5rem; }
+    .site-search input[type="search"]{
+      width:100%; padding:.6rem .9rem; border:1px solid #ccc; border-radius:999px; font-size:.95rem;
+      outline:none; transition:border-color .15s ease;
+    }
+    .site-search input[type="search"]:focus{ border-color:#0066cc; box-shadow:0 0 0 3px rgba(0,102,204,.12);}
+    .site-search .kbd{ font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color:#666; }
+    .site-search .results{
+      position:absolute; top:100%; left:0; right:0; margin-top:.35rem; background:#fff; border:1px solid #e6e6e6;
+      border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.08); overflow:hidden; max-height:60vh; overflow-y:auto;
+      display:none; z-index:20;
+    }
+    .site-search .results[data-open="true"]{ display:block; }
+    .site-search .result{ padding:.7rem .9rem; cursor:pointer; display:block; text-decoration:none; color:#111; }
+    .site-search .result:hover, .site-search .result[aria-selected="true"]{ background:#f6f8fb; }
+    .site-search .empty{ padding:.8rem .9rem; color:#666; }
+    @media (max-width: 579.98px){
+      .header-inner{ flex-wrap:wrap; }
+      .site-search{ order:3; width:100%; max-width:none; }
+    }
+
+    /* About/release card (matches whiteboard style) */
+    .about-sim .release-wrap{
+      margin:.75rem 0 1rem;
+      border:1px solid #dbe8ff;
+      background:#f7faff;
+      border-radius:12px;
+      padding:.75rem;
+    }
+    .about-sim .release-heading{
+      margin:.1rem 0 .55rem;
+      color:#0a58ca;
+    }
+    .about-sim .release-item{
+      padding:.55rem .65rem;
+      border:1px solid #dbe8ff;
+      border-radius:10px;
+      background:#fff;
+    }
+    .about-sim .release-meta{
+      margin:.1rem 0 .35rem;
+    }
+    .about-sim .release-date{
+      color:#667085;
+    }
+  </style>
+
+  <!-- Preconnect + AdSense lib -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="">
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin="">
+  <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4943394934413619" crossorigin="anonymous"></script>
+
+  <!-- Optional site search (reuse) -->
+  <script src="/assets/libs/search-bar.js" defer=""></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="https://starlighttools.org/"><img src="/assets/logo/head_logo_star.webp" alt="" aria-hidden="true" style="width:40px;height:40px;object-fit:contain;vertical-align:middle;flex:0 0 auto;"><span>Starlight Tools</span></a>
+      <div class="site-search" role="search" style="flex:1; max-width:520px;">
+        <form id="toolSearchForm" action="/catalog" role="combobox" aria-haspopup="listbox" aria-owns="toolSearchList" aria-expanded="false">
+          <input id="toolSearch" name="q" type="search" placeholder="Search tools (⌘/Ctrl + K)" aria-autocomplete="list" aria-controls="toolSearchList" autocomplete="off" aria-expanded="false">
+        </form>
+        <div id="toolSearchList" class="results" role="listbox" aria-label="Tool results" data-open="false"></div>
+      </div>
+      <nav class="primary" aria-label="Primary">
+        <a href="https://starlighttools.org/graphics-tools">Graphics</a>
+        <a href="https://starlighttools.org/document-tools">Documents</a>
+        <a href="https://starlighttools.org/text-tools">Text</a>
+        <a href="https://starlighttools.org/web-dev-tools">Web Dev</a>
+        <a href="https://starlighttools.org/calculators">Calculators</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page grid -->
+  <div class="page">
+    <!-- LEFT RAIL (ultra-wide) -->
+    <aside class="rail left-rail show-desktop" aria-label="Left rail">
+      <div class="stack">
+        <div class="ad-wrap" aria-label="Advertisement">
+          <ins class="adsbygoogle ad-slot" data-ad-client="ca-pub-4943394934413619" data-ad-slot="1975316559" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done"><iframe id="aswift_0" style="height: 1px !important; max-height: 1px !important; max-width: 1px !important; width: 1px !important;"><iframe id="google_ads_frame0"></iframe></iframe></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="tool-canvas" role="main" aria-labelledby="pageTitle">
+      <h1 id="pageTitle">Conway’s Game of Life — Interactive Simulator</h1>
+      <p class="meta" aria-live="polite">Draw on the grid, press Play, tweak rules (B/S), enable wrap, and share your creation. Runs entirely in your browser.</p>
+
+      <!-- Related tools (pills) -->
+      <nav class="related-tools card" aria-label="Related tools">
+        <strong class="label">Related tools:</strong>
+        <a class="pill" href="https://starlighttools.org/science/rocket-delta-v-calculator">Rocket Δv</a>
+        <a class="pill" href="https://starlighttools.org/science/satellite-orbit-period-calculator">Orbit Period</a>
+        <a class="pill" href="https://starlighttools.org/science/space-unit-converter">Space Units</a>
+      </nav>
+
+      <div class="tool-grid" role="group" aria-label="Game of Life">
+        <!-- Controls -->
+        <section class="card controls" aria-labelledby="controlsHeading">
+          <h2 id="controlsHeading" style="margin:.2rem 0 1rem;">Controls</h2>
+
+          <div class="row">
+            <label for="gridSize">Grid size</label>
+            <select id="gridSize" title="Grid width × height" aria-label="Grid size">
+              <option value="41x18">66767676767676</option>
+              <option value="100x60" selected="">100 × 60</option>
+              <option value="120x80">120 × 80</option>
+              <option value="160x100">160 × 100</option>
+            </select>
+            <span class="badge" aria-hidden="true">wrap</span>
+            <label for="wrapToggle" class="sr-only">Wrap edges (toroidal)</label>
+            <input type="checkbox" id="wrapToggle" checked="" aria-label="Wrap edges (toroidal)">
+          </div>
+
+          <div class="row">
+            <label for="rules">Rules (B/S)</label>
+            <input id="rules" type="text" value="B3/S23" placeholder="e.g., B3/S23" aria-label="Life-like rules">
+            <select id="rulePresets" title="Rule presets" aria-label="Rule presets">
+              <option value="custom" selected="">Custom</option>
+              <option value="B3/S23">Conway (B3/S23)</option>
+              <option value="B36/S23">HighLife (B36/S23)</option>
+              <option value="B2/S">Seeds (B2/S)</option>
+              <option value="B3678/S34678">Day &amp; Night (B3678/S34678)</option>
+              <option value="B1357/S1357">Replicator (B1357/S1357)</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <label for="speed">Speed</label>
+            <input id="speed" type="range" min="1" max="60" value="12" aria-label="Generations per second">
+            <span id="speedLabel" class="hint">12 gen/s</span>
+          </div>
+
+          <div class="row">
+            <label for="randomDensity">Random fill</label>
+            <input id="randomDensity" type="range" min="0" max="100" value="25" aria-label="Random density (%)">
+            <span id="densityLabel" class="hint">25%</span>
+            <button class="btn ghost" id="randomBtn" type="button">Fill</button>
+            <button class="btn ghost" id="clearBtn" type="button">Clear</button>
+          </div>
+
+          <div class="row" role="group" aria-label="Examples to try">
+            <label>Examples to try</label>
+            <button class="example-btn" type="button" data-example-pattern="glider">Glider</button>
+            <button class="example-btn" type="button" data-example-pattern="rpent">R-pentomino</button>
+            <button class="example-btn" type="button" data-example-pattern="gosper">Gosper Gun</button>
+          </div>
+
+          <div class="row" role="group" aria-label="Simulation controls">
+            <label class="sr-only">Simulation</label>
+            <div class="toolbar" style="justify-content:flex-start;margin:0;">
+              <button class="btn" id="playPauseBtn" type="button" aria-pressed="false">▶ Play</button>
+              <button class="btn secondary" id="stepBtn" type="button">Step</button>
+              <button class="btn ghost" id="shareBtn" type="button">Copy Share Link</button>
+              <button class="btn ghost" id="copyImageBtn" type="button">Copy as Image</button>
+              <button class="btn ghost" id="fullscreenBtn" type="button" aria-pressed="false">Full Screen</button>
+            </div>
+          </div>
+
+          <p class="hint" id="canvasKeyboardHint" style="margin:.2rem 0 0;">Tip: click or drag to toggle cells • <kbd>Shift</kbd> = erase • <kbd>Ctrl/⌘</kbd> = draw • keyboard: arrows move, <kbd>Space</kbd>/<kbd>Enter</kbd> toggle</p>
+        </section>
+
+        <!-- Canvas & stats -->
+        <section class="card" aria-labelledby="simHeading">
+          <h2 id="simHeading" style="margin:.2rem 0 1rem;">Simulation</h2>
+          <div class="canvas-wrap">
+            <canvas id="lifeCanvas" width="1000" height="439" aria-label="Game of Life grid" aria-describedby="canvasKeyboardHint" role="img" tabindex="0"></canvas>
+            <div class="stats" aria-live="polite">
+              <div>Generation: <strong id="genOut">0</strong></div>
+              <div>Population: <strong id="popOut">0</strong></div>
+            </div>
+            <div class="fs-controls" id="fullscreenControls" role="group" aria-label="Fullscreen simulation controls">
+              <button class="btn" id="fsPlayPauseBtn" type="button">▶ Play</button>
+              <button class="btn secondary" id="fsStepBtn" type="button">Step</button>
+              <button class="btn ghost" id="fsClearBtn" type="button">Clear</button>
+              <button class="btn ghost" id="fsShareBtn" type="button">Copy Share Link</button>
+              <button class="btn ghost" id="fsCopyImageBtn" type="button">Copy as Image</button>
+              <button class="btn ghost" id="fsToggleControlsBtn" type="button" aria-pressed="false">Hide Buttons</button>
+              <button class="btn ghost" id="fsExitBtn" type="button">Exit Full Screen</button>
+            </div>
+            <button class="btn ghost fs-show-controls" id="fsShowControlsBtn" type="button">Show Buttons</button>
+          </div>
+        </section>
+      </div>
+
+
+<section class="card info-section about-sim" aria-labelledby="aboutSimHeading" style="margin-top:1.25rem;">
+        <h2 id="aboutSimHeading">About this simulation</h2>
+        <div class="release-wrap">
+          <h3 class="release-heading">Release Updates</h3>
+          <div class="release-item">
+            <p class="release-meta"><strong>v1.1</strong> <span class="release-date">(February 7, 2026)</span></p>
+            <ul style="margin:.25rem 0 .1rem; padding-left:1.1rem;">
+              <li>Added one-click examples (Glider, R-pentomino, Gosper Gun) for faster starts.</li>
+              <li>Added keyboard canvas controls: arrows to move, Space/Enter to toggle, Shift/Ctrl/⌘ modifiers supported.</li>
+              <li>Added <strong>Copy as Image</strong> for quick sharing of current board state.</li>
+              <li>Added a visible <strong>Full Screen</strong> mode for distraction-free simulation.</li>
+              <li>Improved simulation performance with cached rules, buffered stepping, and frame-coalesced drag rendering.</li>
+            </ul>
+          </div>
+        </div>
+        <p>This simulator runs fully client-side in your browser. You can explore Conway’s Game of Life and related rules, save/share board states by URL, and now also share snapshots as images.</p>
+      </section>
+
+      <section class="card info-section" aria-label="Advertisement" style="margin-top:1rem;">
+        <h2 style="margin:.1rem 0 .6rem;">Advertisement</h2>
+        <div class="infeed-ad-wrap" aria-label="Advertisement">
+          <ins class="adsbygoogle infeed-ad-slot" style="display:block" data-ad-format="fluid" data-ad-layout-key="-ef+6k-30-ac+ty" data-ad-client="ca-pub-4943394934413619" data-ad-slot="8975893078" data-adsbygoogle-status="done"><iframe id="aswift_1" style="height: 1px !important; max-height: 1px !important; max-width: 1px !important; width: 1px !important;"><iframe id="google_ads_frame1"></iframe></iframe></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+      </section>
+
+<section class="card info-section" style="margin-top:1rem;">
+        <h2>What is Conway’s Game of Life?</h2>
+        <p>
+          Conway’s Game of Life is a playful, visual way to explore how complex behavior can
+          emerge from simple rules. It is a grid-based simulation where each square, or cell,
+          is either alive or dead. At each step, the grid updates based only on the local
+          neighborhood around every cell. Even though the rules are minimal, the system can
+          produce surprising patterns like moving “gliders,” repeating oscillators, and
+          intricate long-term structures. This simulator lets you watch those patterns
+          unfold in real time and experiment with different starting designs.
+        </p>
+        <p>
+          The classic Game of Life uses the rule set called B3/S23. That shorthand means a
+          dead cell is born if it has exactly three live neighbors, and a live cell survives
+          if it has two or three neighbors. Any other case dies off. Because every update is
+          simultaneous, the grid behaves like a tiny world with its own physics. It is a
+          great introduction to cellular automata, emergence, and rule-based systems often
+          discussed in computer science, mathematics, and complexity science.
+        </p>
+        <h3>How to use this simulator</h3>
+        <ul>
+          <li><strong>Draw cells</strong> by clicking or dragging on the grid. Use <em>Ctrl/⌘</em> to force draw and <em>Shift</em> to erase.</li>
+          <li><strong>Press Play</strong> to start the simulation, then adjust the <strong>Speed</strong> slider for faster or slower generations.</li>
+          <li><strong>Step</strong> advances a single generation, which is handy for studying small patterns.</li>
+          <li><strong>Try one-click examples</strong> like Glider, R-pentomino, and Gosper Gun to see classic Game of Life behavior.</li>
+          <li><strong>Toggle Wrap</strong> if you want the edges to connect like a torus, which changes how patterns travel.</li>
+          <li><strong>Experiment with rules</strong> such as HighLife (B36/S23) or Seeds (B2/S) to create new behaviors.</li>
+          <li><strong>Share your setup</strong> by copying a link that preserves the grid, rules, speed, and wrap mode.</li>
+        </ul>
+        <h3>Why it matters</h3>
+        <p>
+          Beyond being fun to watch, the Game of Life is a classic example of emergent
+          behavior. Researchers and educators use it to illustrate how local rules can
+          create global structure, a concept that appears in topics like ecology, network
+          theory, and artificial life. It also has historical importance in computer
+          science: the Game of Life is known to be computationally universal, meaning it
+          can simulate logic and computation with the right patterns. For students, it is a
+          hands-on way to build intuition about algorithms, discrete time steps, and
+          simulation modeling. This version runs entirely in your browser, so your designs
+          stay private and the experience is instant.
+        </p>
+      </section>
+
+      <section class="card info-section" style="margin-top:1rem;">
+        <h2>References &amp; Further Reading</h2>
+        <ul>
+          <li><a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank" rel="noopener noreferrer">Conway’s Game of Life (Wikipedia)</a></li>
+          <li><a href="https://mathworld.wolfram.com/GameofLife.html" target="_blank" rel="noopener noreferrer">Game of Life — Wolfram MathWorld</a></li>
+          <li>Conway, J. H. (1970). “The Game of Life.” In <a href="https://archive.org/details/scientific-american-1970-10/page/n105/mode/2up" target="_blank" rel="noopener noreferrer">Scientific American (Oct 1970, Gardner’s column)</a></li>
+          <li><a href="https://conwaylife.com/wiki/Main_Page" target="_blank" rel="noopener noreferrer">LifeWiki</a></li>
+          <li><a href="https://plato.stanford.edu/entries/cellular-automata/" target="_blank" rel="noopener noreferrer">Cellular Automata — Stanford Encyclopedia of Philosophy</a></li>
+        </ul>
+        <p class="hint"><em>External links open in a new tab. Not affiliated with Starlight Tools.</em></p>
+      </section>
+
+      <section class="card info-section fun-facts pretty-facts" aria-labelledby="funFactsHeading" style="margin-top:1rem;">
+        <h2 id="funFactsHeading" style="display:flex; align-items:center; gap:.5rem;">
+          <span aria-hidden="true">🧬</span>
+          5 Fun Facts about the Game of Life
+        </h2>
+        <div class="facts-grid" role="list">
+          <article class="fact" role="listitem">
+            <div class="badge" aria-hidden="true">1</div>
+            <h3>Gliders never stop</h3>
+            <p>The tiny five-cell <strong>glider</strong> drifts diagonally forever, advancing one cell every 4 generations—first proof that Life supports self-moving “spaceships.”</p>
+            <div class="tag">Classic mover</div>
+          </article>
+          <article class="fact" role="listitem">
+            <div class="badge" aria-hidden="true">2</div>
+            <h3>Guns = infinite growth</h3>
+            <p>The <strong>Gosper Glider Gun</strong> (a preset here) spits out a new glider every 30 generations. Its discovery in 1970 was the first pattern with unbounded growth.</p>
+            <div class="tag">Endless stream</div>
+          </article>
+          <article class="fact" role="listitem">
+            <div class="badge" aria-hidden="true">3</div>
+            <h3>R-pentomino chaos</h3>
+            <p>Five cells placed as the <strong>R-pentomino</strong> thrash around for 1,103 generations before settling into 116 still lifes and oscillators—try it from the Examples row.</p>
+            <div class="tag">Long fuse</div>
+          </article>
+          <article class="fact" role="listitem">
+            <div class="badge" aria-hidden="true">4</div>
+            <h3>Life = universal computer</h3>
+            <p>With glider streams as signals, Life can build logic gates, memory, even full CPUs. Your browser grid can, in theory, simulate any computation.</p>
+            <div class="tag">Turing complete</div>
+          </article>
+          <article class="fact" role="listitem">
+            <div class="badge" aria-hidden="true">5</div>
+            <h3>Wrap changes destiny</h3>
+            <p>Enable <strong>Wrap</strong> and the grid becomes a torus: gliders loop endlessly instead of escaping, and some “dying” patterns become oscillators.</p>
+            <div class="tag">Toroidal twist</div>
+          </article>
+        </div>
+      </section>
+
+      <style>
+      /* --- Pretty facts layout --- */
+      .pretty-facts .facts-grid{
+        display:grid; gap:12px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+      .pretty-facts .fact{
+        position:relative; background:#f8fbff; border:1px solid #e6f0fe;
+        border-radius:12px; padding:14px 12px 12px 52px;
+        transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+      }
+      .pretty-facts .fact:hover{
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(0,0,0,.06);
+        border-color:#d9e8ff;
+      }
+      @media (prefers-reduced-motion: reduce){
+        .pretty-facts .fact{ transition:none; }
+      }
+      .pretty-facts .badge{
+        position:absolute; left:12px; top:12px; width:28px; height:28px;
+        border-radius:50%; display:grid; place-items:center;
+        font: 600 14px/1 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+        color:#0a58ca; background:#eaf2ff; border:1px solid #cfe3f8;
+      }
+      .pretty-facts h3{
+        margin:.1rem 0 .35rem; font-size:1rem; color:#0a58ca;
+      }
+      .pretty-facts p{ margin:.15rem 0 .5rem; color:#213547; }
+      .pretty-facts .tag{
+        display:inline-block; font-size:.85rem; padding:.2rem .5rem;
+        border-radius:999px; background:#fff; border:1px solid #e6f0fe; color:#0a58ca;
+      }
+      </style>
+
+
+<!-- Discovery -->
+<section class="below-content card" aria-labelledby="explore-h3" style="margin-top:1rem;">
+  <h3 id="explore-h3">Explore more tools</h3>
+  <nav class="cats" aria-label="Tool categories">
+    <a href="https://starlighttools.org/graphics-tools">🎨 Graphics</a>
+    <a href="https://starlighttools.org/document-tools">📄 Documents</a>
+    <a href="https://starlighttools.org/text-tools">✍️ Text</a>
+    <a href="https://starlighttools.org/web-dev-tools">💻 Web Dev</a>
+    <a href="https://starlighttools.org/calculators">🧮 Calculators</a>
+    <a href="https://starlighttools.org/time-date">⏱️ Time &amp; Date</a>
+    <a href="https://starlighttools.org/science-tools">🧪 Science</a>
+    <a href="https://starlighttools.org/random-tools">🎲 Random</a>
+    <a href="https://starlighttools.org/games">🕹️ Games</a>
+  </nav>
+</section>
+    </main>
+
+    <!-- RIGHT RAIL -->
+    <aside class="rail show-desktop" aria-label="Right rail">
+      <div class="stack">
+        <div class="card">
+          <h3 style="margin:.25rem 0 .5rem;">Our Products</h3>
+          <ul style="padding-left:1.1rem; margin:.25rem 0;">
+            <li><a href="https://starlighttools.org/fan-art-wallpapers">⭐ Fan Art &amp; Wallpapers</a></li>
+            <li><a href="https://www.redbubble.com/people/unbeknownst199/shop" target="_blank" rel="noopener nofollow sponsored">🛍️ Merch Store</a></li>
+            <li><a href="https://coff.ee/starlighttools" target="_blank" rel="noopener nofollow sponsored">🟡 Buy me a coffee</a></li>
+            <li><a href="https://starlighttools.gumroad.com/" target="_blank" rel="noopener nofollow sponsored">🟢 Offline Tools</a></li>
+          </ul>
+        </div>
+        <div class="ad-wrap" aria-label="Advertisement">
+          <ins class="adsbygoogle ad-slot" data-ad-client="ca-pub-4943394934413619" data-ad-slot="1975316559" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done"><iframe id="aswift_2" style="height: 1px !important; max-height: 1px !important; max-width: 1px !important; width: 1px !important;"><iframe id="google_ads_frame2"></iframe></iframe></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer style="text-align:center;">© 2026 Starlight Robotics. All rights reserved. · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></footer>
+
+  <!-- ---------- Logic (your original, lightly organized) ---------- -->
+  <script>
+    // ====== Helpers: parse rules (B/S), presets, patterns ======
+    function parseRules(bs) {
+      const m = (bs||'').toUpperCase().match(/B(\d*)\/S(\d*)/);
+      const birth = new Uint8Array(9);
+      const survive = new Uint8Array(9);
+      if(!m){
+        birth[3] = 1;
+        survive[2] = 1;
+        survive[3] = 1;
+        return {birth, survive};
+      }
+      for (const ch of m[1]){
+        const n = ch.charCodeAt(0) - 48;
+        if (n >= 0 && n <= 8) birth[n] = 1;
+      }
+      for (const ch of m[2]){
+        const n = ch.charCodeAt(0) - 48;
+        if (n >= 0 && n <= 8) survive[n] = 1;
+      }
+      return {birth, survive};
+    }
+
+    const PATTERNS = {
+      glider: { cells: [[0,1],[1,2],[2,0],[2,1],[2,2]] },
+      lwss:   { cells: [[1,0],[4,0],[0,1],[0,2],[4,2],[0,3],[1,3],[2,3],[3,3]] },
+      pulsar: { cells: (()=>{
+        const pts=[]; const base=[
+          [2,0],[3,0],[4,0],[8,0],[9,0],[10,0],
+          [0,2],[5,2],[7,2],[12,2],[0,3],[5,3],[7,3],[12,3],[0,4],[5,4],[7,4],[12,4],
+          [2,5],[3,5],[4,5],[8,5],[9,5],[10,5],
+          [2,7],[3,7],[4,7],[8,7],[9,7],[10,7],
+          [0,8],[5,8],[7,8],[12,8],[0,9],[5,9],[7,9],[12,9],[0,10],[5,10],[7,10],[12,10],
+          [2,12],[3,12],[4,12],[8,12],[9,12],[10,12]
+        ]; base.forEach(p=>pts.push(p)); return pts;
+      })()},
+      rpent:  { cells: [[1,0],[2,0],[0,1],[1,1],[1,2]] },
+      gosper: { cells: (()=>{
+        const pts=[]; const add=(x,y)=>pts.push([x,y]);
+        [[24,0],[22,1],[24,1],[12,2],[13,2],[20,2],[21,2],[34,2],[35,2],
+         [11,3],[15,3],[20,3],[21,3],[34,3],[35,3],
+         [0,4],[1,4],[10,4],[16,4],[20,4],[21,4],
+         [0,5],[1,5],[10,5],[14,5],[16,5],[17,5],[22,5],[24,5],
+         [10,6],[16,6],[24,6],[11,7],[15,7],[12,8],[13,8]
+        ].forEach(([x,y])=>add(x,y)); return pts;
+      })()}
+    };
+
+    // ====== Elements ======
+    const canvas = document.getElementById('lifeCanvas');
+    const canvasWrap = document.querySelector('.canvas-wrap');
+    const ctx = canvas.getContext('2d');
+    const gridSizeSel = document.getElementById('gridSize');
+    const wrapToggle = document.getElementById('wrapToggle');
+    const rulesInput = document.getElementById('rules');
+    const rulePresets = document.getElementById('rulePresets');
+    const speedRange = document.getElementById('speed');
+    const speedLabel = document.getElementById('speedLabel');
+    const densityRange = document.getElementById('randomDensity');
+    const densityLabel = document.getElementById('densityLabel');
+    const randomBtn = document.getElementById('randomBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const examplePatternBtns = document.querySelectorAll('[data-example-pattern]');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const stepBtn = document.getElementById('stepBtn');
+    const shareBtn = document.getElementById('shareBtn');
+    const copyImageBtn = document.getElementById('copyImageBtn');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const fsPlayPauseBtn = document.getElementById('fsPlayPauseBtn');
+    const fsStepBtn = document.getElementById('fsStepBtn');
+    const fsClearBtn = document.getElementById('fsClearBtn');
+    const fsShareBtn = document.getElementById('fsShareBtn');
+    const fsCopyImageBtn = document.getElementById('fsCopyImageBtn');
+    const fsToggleControlsBtn = document.getElementById('fsToggleControlsBtn');
+    const fsShowControlsBtn = document.getElementById('fsShowControlsBtn');
+    const fsExitBtn = document.getElementById('fsExitBtn');
+    const genOut = document.getElementById('genOut');
+    const popOut = document.getElementById('popOut');
+
+    // ====== State ======
+    let cols = 100, rows = 60;
+    let cellSize = 10;
+    let grid = new Uint8Array(cols*rows); // 0 dead, 1 alive
+    let nextGrid = new Uint8Array(cols*rows);
+    let population = 0;
+    let generation = 0;
+    let running = false;
+    let tLast = 0;
+    let intervalMs = 1000/12;
+    let renderRaf = 0;
+    let ruleBirth = new Uint8Array(9);
+    let ruleSurvive = new Uint8Array(9);
+    let keyboardC = 0;
+    let keyboardR = 0;
+
+    // ====== Helpers ======
+    function clamp(v,min,max){ return Math.max(min, Math.min(max,v)); }
+    function index(c,r){ return r*cols + c; }
+    function resetKeyboardCursor(){
+      keyboardC = Math.floor(cols/2);
+      keyboardR = Math.floor(rows/2);
+    }
+    function clampKeyboardCursor(){
+      keyboardC = clamp(keyboardC, 0, cols - 1);
+      keyboardR = clamp(keyboardR, 0, rows - 1);
+    }
+    function updateRuleCache(){
+      const parsed = parseRules(rulesInput.value);
+      ruleBirth = parsed.birth;
+      ruleSurvive = parsed.survive;
+    }
+    function requestRender(){
+      if (renderRaf) return;
+      renderRaf = requestAnimationFrame(()=>{
+        renderRaf = 0;
+        render();
+      });
+    }
+    function get(c,r){
+      if (wrapToggle.checked){
+        c = (c%cols+cols)%cols; r = (r%rows+rows)%rows;
+        return grid[index(c,r)];
+      } else {
+        if (c<0||c>=cols||r<0||r>=rows) return 0;
+        return grid[index(c,r)];
+      }
+    }
+    function setCell(c,r,val){
+      if (c<0||c>=cols||r<0||r>=rows) return;
+      const i = index(c,r);
+      if (grid[i]!==val){
+        population += val ? 1 : -1;
+        grid[i]=val;
+      }
+    }
+
+    function computeNext(){
+      const current = grid;
+      const next = nextGrid;
+      next.fill(0);
+      const lastCol = cols - 1;
+      const lastRow = rows - 1;
+      let pop=0;
+      if (wrapToggle.checked){
+        for (let r=0;r<rows;r++){
+          const up = (r === 0) ? lastRow : (r - 1);
+          const dn = (r === lastRow) ? 0 : (r + 1);
+          const row = r * cols;
+          const upRow = up * cols;
+          const dnRow = dn * cols;
+          for (let c=0;c<cols;c++){
+            const left = (c === 0) ? lastCol : (c - 1);
+            const right = (c === lastCol) ? 0 : (c + 1);
+            const idx = row + c;
+            const n =
+              current[upRow + left] + current[upRow + c] + current[upRow + right] +
+              current[row + left] + current[row + right] +
+              current[dnRow + left] + current[dnRow + c] + current[dnRow + right];
+            const out = current[idx] ? ruleSurvive[n] : ruleBirth[n];
+            next[idx] = out;
+            pop += out;
+          }
+        }
+      } else {
+        for (let r=0;r<rows;r++){
+          const row = r * cols;
+          const upRow = row - cols;
+          const dnRow = row + cols;
+          for (let c=0;c<cols;c++){
+            const idx = row + c;
+            let n = 0;
+            if (r > 0){
+              n += current[upRow + c];
+              if (c > 0) n += current[upRow + c - 1];
+              if (c < lastCol) n += current[upRow + c + 1];
+            }
+            if (c > 0) n += current[row + c - 1];
+            if (c < lastCol) n += current[row + c + 1];
+            if (r < lastRow){
+              n += current[dnRow + c];
+              if (c > 0) n += current[dnRow + c - 1];
+              if (c < lastCol) n += current[dnRow + c + 1];
+            }
+            const out = current[idx] ? ruleSurvive[n] : ruleBirth[n];
+            next[idx] = out;
+            pop += out;
+          }
+        }
+      }
+      grid = next;
+      nextGrid = current;
+      population = pop;
+      generation++;
+      genOut.textContent = String(generation);
+      popOut.textContent = String(pop);
+    }
+
+    function render(){
+      cellSize = Math.floor(Math.min(canvas.width/cols, canvas.height/rows));
+      const w = cellSize*cols, h=cellSize*rows;
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0,0,w,h);
+
+      // live cells
+      ctx.fillStyle = '#222';
+      for (let r=0;r<rows;r++){
+        for (let c=0;c<cols;c++){
+          if (grid[index(c,r)]===1){
+            ctx.fillRect(c*cellSize, r*cellSize, cellSize, cellSize);
+          }
+        }
+      }
+      // grid lines (subtle)
+      ctx.strokeStyle = '#eee';
+      ctx.lineWidth = 1;
+      for (let x=0;x<=cols;x++){
+        ctx.beginPath(); ctx.moveTo(x*cellSize+0.5,0); ctx.lineTo(x*cellSize+0.5, rows*cellSize); ctx.stroke();
+      }
+      for (let y=0;y<=rows;y++){
+        ctx.beginPath(); ctx.moveTo(0, y*cellSize+0.5); ctx.lineTo(cols*cellSize, y*cellSize+0.5); ctx.stroke();
+      }
+      if (document.activeElement === canvas){
+        clampKeyboardCursor();
+        ctx.strokeStyle = '#0a58ca';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(
+          keyboardC*cellSize + 1,
+          keyboardR*cellSize + 1,
+          Math.max(1, cellSize - 2),
+          Math.max(1, cellSize - 2)
+        );
+      }
+      popOut.textContent = String(population);
+    }
+
+    function loop(ts){
+      if (running){
+        if (ts - tLast >= intervalMs){
+          computeNext();
+          render();
+          tLast = ts;
+        }
+        requestAnimationFrame(loop);
+      }
+    }
+
+    // ====== UI wiring ======
+    function applyGridSize(value){
+      const [cw,ch] = value.split('x').map(Number);
+      cols = cw; rows = ch;
+      grid = new Uint8Array(cols*rows);
+      nextGrid = new Uint8Array(cols*rows);
+      population = 0;
+      generation = 0; genOut.textContent = '0'; popOut.textContent = '0';
+      const aspect = rows/cols;
+      canvas.width = 1000;
+      canvas.height = Math.round(1000*aspect);
+      resetKeyboardCursor();
+      render();
+    }
+
+    function randomFill(pct){
+      let pop = 0;
+      for (let i=0;i<grid.length;i++){
+        const alive = (Math.random()*100 < pct) ? 1 : 0;
+        grid[i] = alive;
+        pop += alive;
+      }
+      population = pop;
+      generation = 0; genOut.textContent = '0'; render();
+    }
+
+    function centerPattern(cells){
+      const xs = cells.map(([x,_])=>x);
+      const ys = cells.map(([_,y])=>y);
+      const w = Math.max(...xs)-Math.min(...xs)+1;
+      const h = Math.max(...ys)-Math.min(...ys)+1;
+      const offsetC = Math.floor((cols - w)/2) - Math.min(...xs);
+      const offsetR = Math.floor((rows - h)/2) - Math.min(...ys);
+      cells.forEach(([x,y])=>{
+        const C = x+offsetC, R=y+offsetR;
+        if (C>=0&&C<cols&&R>=0&&R<rows) setCell(C,R,1);
+      });
+      render();
+    }
+
+    function encodeState(payload){
+      const json = JSON.stringify(payload);
+      const bytes = new TextEncoder().encode(json);
+      let bin = '';
+      const CHUNK = 0x8000;
+      for (let i=0; i<bytes.length; i+=CHUNK){
+        bin += String.fromCharCode(...bytes.subarray(i, i+CHUNK));
+      }
+      // URL-safe base64 without padding
+      return btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+    }
+
+    function decodeState(encoded){
+      // Accept URL-safe and standard base64
+      const b64 = encoded.replace(/-/g,'+').replace(/_/g,'/');
+      const padded = b64 + '='.repeat((4 - (b64.length % 4)) % 4);
+
+      // Preferred UTF-8 decode path
+      try{
+        const bin = atob(padded);
+        const bytes = Uint8Array.from(bin, ch => ch.charCodeAt(0));
+        const json = new TextDecoder().decode(bytes);
+        return JSON.parse(json);
+      }catch(_){
+        // Backward compatibility for older links
+        const legacy = decodeURIComponent(escape(atob(padded)));
+        return JSON.parse(legacy);
+      }
+    }
+
+    function copyShareLink(){
+      const live = [];
+      for (let r=0;r<rows;r++){
+        for (let c=0;c<cols;c++){
+          if (grid[index(c,r)]===1) live.push(r*cols + c);
+        }
+      }
+      const payload = {
+        cols, rows,
+        wrap: wrapToggle.checked ? 1 : 0,
+        rules: rulesInput.value,
+        speed: +speedRange.value,
+        live
+      };
+      const b64 = encodeState(payload);
+      const url = location.origin + location.pathname + '#state=' + b64;
+      navigator.clipboard.writeText(url).then(()=>{
+        shareBtn.textContent = 'Link copied ✓';
+        setTimeout(()=>shareBtn.textContent='Copy Share Link',1200);
+      }).catch(()=>{
+        prompt('Copy this URL:', url);
+      });
+    }
+
+    function copyCanvasImage(){
+      const setDone = (msg)=>{
+        copyImageBtn.textContent = msg;
+        setTimeout(()=>{ copyImageBtn.textContent = 'Copy as Image'; }, 1200);
+      };
+      const saveFallback = ()=>{
+        const a = document.createElement('a');
+        a.href = canvas.toDataURL('image/png');
+        a.download = 'game-of-life.png';
+        a.click();
+        setDone('Image downloaded ✓');
+      };
+      canvas.toBlob(async (blob)=>{
+        if (!blob){
+          saveFallback();
+          return;
+        }
+        if (navigator.clipboard && window.ClipboardItem){
+          try{
+            await navigator.clipboard.write([new ClipboardItem({'image/png': blob})]);
+            setDone('Image copied ✓');
+            return;
+          }catch(_){ /* fallback below */ }
+        }
+        saveFallback();
+      }, 'image/png');
+    }
+
+    function updateFullscreenButton(){
+      const active = document.fullscreenElement === canvasWrap;
+      fullscreenBtn.textContent = active ? 'Exit Full Screen' : 'Full Screen';
+      fullscreenBtn.setAttribute('aria-pressed', String(active));
+    }
+    function setFullscreenControlsHidden(hidden){
+      canvasWrap.classList.toggle('fs-controls-hidden', hidden);
+      fsToggleControlsBtn.textContent = hidden ? 'Show Buttons' : 'Hide Buttons';
+      fsToggleControlsBtn.setAttribute('aria-pressed', String(hidden));
+    }
+    function syncPlayButtons(){
+      const text = running ? '⏸ Pause' : '▶ Play';
+      playPauseBtn.textContent = text;
+      fsPlayPauseBtn.textContent = text;
+    }
+
+    async function toggleFullscreen(){
+      try{
+        if (document.fullscreenElement === canvasWrap){
+          await document.exitFullscreen();
+        } else {
+          await canvasWrap.requestFullscreen();
+        }
+      }catch(_){ /* ignore */ }
+      updateFullscreenButton();
+      requestRender();
+    }
+
+    function tryRestoreFromHash(){
+      if (!location.hash.startsWith('#state=')) return false;
+      try{
+        const b64 = location.hash.slice(7);
+        const obj = decodeState(b64);
+        if (!obj || !obj.cols || !obj.rows) return false;
+        cols = obj.cols; rows = obj.rows;
+        grid = new Uint8Array(cols*rows);
+        nextGrid = new Uint8Array(cols*rows);
+        population = 0;
+        obj.live?.forEach(idx=> {
+          if (idx>=0 && idx<grid.length && grid[idx]===0){
+            grid[idx]=1;
+            population++;
+          }
+        });
+        wrapToggle.checked = !!obj.wrap;
+        rulesInput.value = obj.rules || 'B3/S23';
+        updateRuleCache();
+        speedRange.value = obj.speed || 12;
+        speedLabel.textContent = `${speedRange.value} gen/s`;
+        const opt = `${cols}x${rows}`;
+        let matched=false;
+        Array.from(gridSizeSel.options).forEach(o=>{ if (o.value === opt){ gridSizeSel.value = opt; matched=true; } });
+        if (!matched){
+          canvas.width = 1000; canvas.height = Math.round(1000*(rows/cols));
+        } else {
+          applyGridSize(opt);
+          population = 0;
+          obj.live?.forEach(idx=> {
+            if (idx>=0 && idx<grid.length && grid[idx]===0){
+              grid[idx]=1;
+              population++;
+            }
+          });
+        }
+        generation = 0; genOut.textContent='0'; render();
+        resetKeyboardCursor();
+        return true;
+      }catch(e){ /* ignore */ }
+      return false;
+    }
+
+    // Pointer drawing
+    let isPointerDown = false;
+    let drawMode = null; // 'draw' | 'erase'
+    function eventToCell(e){
+      const rect = canvas.getBoundingClientRect();
+      const x = (e.clientX - rect.left) * (canvas.width/rect.width);
+      const y = (e.clientY - rect.top) * (canvas.height/rect.height);
+      const c = Math.floor(x / cellSize);
+      const r = Math.floor(y / cellSize);
+      return {c: clamp(c,0,cols-1), r: clamp(r,0,rows-1)};
+    }
+    canvas.addEventListener('pointerdown', (e)=>{
+      e.preventDefault();
+      if (canvas.setPointerCapture){
+        try{ canvas.setPointerCapture(e.pointerId); }catch(_){ /* ignore */ }
+      }
+      isPointerDown = true;
+      const {c,r} = eventToCell(e);
+      keyboardC = c;
+      keyboardR = r;
+      const forceDraw = e.ctrlKey || e.metaKey;
+      const forceErase = e.shiftKey;
+      const alive = get(c,r);
+      if (forceDraw) drawMode = 'draw';
+      else if (forceErase) drawMode = 'erase';
+      else drawMode = alive ? 'erase' : 'draw';
+      setCell(c,r, drawMode==='draw'?1:0);
+      requestRender();
+    });
+    canvas.addEventListener('pointermove', (e)=>{
+      if (!isPointerDown) return;
+      e.preventDefault();
+      const {c,r} = eventToCell(e);
+      keyboardC = c;
+      keyboardR = r;
+      setCell(c,r, drawMode==='draw'?1:0);
+      requestRender();
+    });
+    window.addEventListener('pointerup', ()=>{ isPointerDown=false; drawMode=null; });
+    canvas.addEventListener('pointercancel', ()=>{ isPointerDown=false; drawMode=null; });
+
+    // Events
+    gridSizeSel.addEventListener('change', e=> applyGridSize(e.target.value));
+    wrapToggle.addEventListener('change', render);
+    rulePresets.addEventListener('change', ()=>{
+      if (rulePresets.value !== 'custom'){
+        rulesInput.value = rulePresets.value;
+        updateRuleCache();
+      }
+      render();
+    });
+    rulesInput.addEventListener('change', ()=>{
+      rulePresets.value='custom';
+      updateRuleCache();
+    });
+    rulesInput.addEventListener('input', ()=>{
+      rulePresets.value='custom';
+      updateRuleCache();
+    });
+
+    speedRange.addEventListener('input', ()=>{
+      speedLabel.textContent = `${speedRange.value} gen/s`;
+      intervalMs = 1000/Math.max(1, +speedRange.value);
+    });
+    densityRange.addEventListener('input', ()=> densityLabel.textContent = `${densityRange.value}%`);
+    randomBtn.addEventListener('click', ()=> randomFill(+densityRange.value));
+    clearBtn.addEventListener('click', ()=>{
+      grid.fill(0);
+      population = 0;
+      generation=0;
+      genOut.textContent='0';
+      render();
+    });
+
+    examplePatternBtns.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const key = btn.getAttribute('data-example-pattern');
+        if (!key || !PATTERNS[key]) return;
+        centerPattern(PATTERNS[key].cells);
+      });
+    });
+
+    playPauseBtn.addEventListener('click', ()=>{
+      running = !running;
+      syncPlayButtons();
+      playPauseBtn.setAttribute('aria-pressed', String(running));
+      if (running){ tLast = 0; requestAnimationFrame(loop); }
+    });
+
+    stepBtn.addEventListener('click', ()=>{
+      if (!running){ computeNext(); render(); }
+    });
+
+    shareBtn.addEventListener('click', copyShareLink);
+    copyImageBtn.addEventListener('click', copyCanvasImage);
+    fullscreenBtn.addEventListener('click', toggleFullscreen);
+    fsPlayPauseBtn.addEventListener('click', ()=> playPauseBtn.click());
+    fsStepBtn.addEventListener('click', ()=> stepBtn.click());
+    fsClearBtn.addEventListener('click', ()=> clearBtn.click());
+    fsShareBtn.addEventListener('click', ()=> shareBtn.click());
+    fsCopyImageBtn.addEventListener('click', ()=> copyImageBtn.click());
+    fsExitBtn.addEventListener('click', ()=> toggleFullscreen());
+    fsToggleControlsBtn.addEventListener('click', ()=>{
+      setFullscreenControlsHidden(!canvasWrap.classList.contains('fs-controls-hidden'));
+    });
+    fsShowControlsBtn.addEventListener('click', ()=> setFullscreenControlsHidden(false));
+    document.addEventListener('fullscreenchange', ()=>{
+      updateFullscreenButton();
+      if (document.fullscreenElement !== canvasWrap){
+        setFullscreenControlsHidden(false);
+      }
+      requestRender();
+    });
+
+    canvas.addEventListener('focus', requestRender);
+    canvas.addEventListener('blur', requestRender);
+    canvas.addEventListener('keydown', (e)=>{
+      let handled = true;
+      if (e.key === 'ArrowLeft') keyboardC--;
+      else if (e.key === 'ArrowRight') keyboardC++;
+      else if (e.key === 'ArrowUp') keyboardR--;
+      else if (e.key === 'ArrowDown') keyboardR++;
+      else if (e.key === ' ' || e.key === 'Enter'){
+        clampKeyboardCursor();
+        if (e.ctrlKey || e.metaKey) setCell(keyboardC, keyboardR, 1);
+        else if (e.shiftKey) setCell(keyboardC, keyboardR, 0);
+        else setCell(keyboardC, keyboardR, get(keyboardC, keyboardR) ? 0 : 1);
+      } else {
+        handled = false;
+      }
+      if (!handled) return;
+      e.preventDefault();
+      clampKeyboardCursor();
+      requestRender();
+    });
+
+    // Init
+    (function init(){
+      updateRuleCache();
+      updateFullscreenButton();
+      setFullscreenControlsHidden(false);
+      syncPlayButtons();
+      applyGridSize(gridSizeSel.value);
+      if (!tryRestoreFromHash()){
+        // seed a glider for delight
+        (function seed(){ PATTERNS.glider.cells.forEach(([x,y])=>setCell(Math.floor(cols/2)+x-2, Math.floor(rows/2)+y-2,1)); })();
+      }
+      intervalMs = 1000/Math.max(1, +speedRange.value);
+      render();
+      // Keep canvas sharp on resize
+      window.addEventListener('resize', requestRender);
+    })();
+  </script>
+
+
+</body></html>
