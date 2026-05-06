@@ -698,25 +698,42 @@
   <script>
     // ====== Helpers: parse rules (B/S), presets, patterns ======
     function parseRules(bs) {
-      const m = (bs||'').toUpperCase().match(/B(\d*)\/S(\d*)/);
-      const birth = new Uint8Array(9);
-      const survive = new Uint8Array(9);
-      if(!m){
-        birth[3] = 1;
-        survive[2] = 1;
-        survive[3] = 1;
-        return {birth, survive};
-      }
-      for (const ch of m[1]){
-        const n = ch.charCodeAt(0) - 48;
-        if (n >= 0 && n <= 8) birth[n] = 1;
-      }
-      for (const ch of m[2]){
-        const n = ch.charCodeAt(0) - 48;
-        if (n >= 0 && n <= 8) survive[n] = 1;
-      }
-      return {birth, survive};
+  bs = (bs || '').toUpperCase().trim();
+
+  const birth = new Uint8Array(9);
+  const survive = new Uint8Array(9);
+
+  // Accept:
+  // B3
+  // S23
+  // B3/S23
+  // B2/S
+  // etc.
+  const birthMatch = bs.match(/B([0-8]*)/);
+  const surviveMatch = bs.match(/S([0-8]*)/);
+
+  // Default to Conway if nothing valid supplied
+  if (!birthMatch && !surviveMatch) {
+    birth[3] = 1;
+    survive[2] = 1;
+    survive[3] = 1;
+    return { birth, survive };
+  }
+
+  if (birthMatch) {
+    for (const ch of birthMatch[1]) {
+      birth[+ch] = 1;
     }
+  }
+
+  if (surviveMatch) {
+    for (const ch of surviveMatch[1]) {
+      survive[+ch] = 1;
+    }
+  }
+
+  return { birth, survive };
+}
 
     const PATTERNS = {
       glider: { cells: [[0,1],[1,2],[2,0],[2,1],[2,2]] },
